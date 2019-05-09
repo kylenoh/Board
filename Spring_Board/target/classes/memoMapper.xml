@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kyle.jscbpm.memo.MemoMapper">
+	<insert id="writeMemo" parameterType="com.kyle.jscbpm.memo.Memo">
+		insert into js_memo values(js_memo_seq.nextval,#{js_writer},#{js_txt},sysdate,#{js_file})
+	</insert>
+	<select id="getReviewCount" resultType="java.lang.Integer">
+		select count(*) from js_memo
+	</select>
+	<select id="getReview" parameterType="com.kyle.jscbpm.memo.ReveiwNo" resultType="com.kyle.jscbpm.memo.Memo">
+		select * from(select rownum as rn,js_no,js_writer,js_txt,js_date,js_file from (select * from js_memo order by js_date))where rn &lt;=#{start} and rn &gt;= #{end} order by rn desc
+	</select>
+	<select id="search" parameterType="com.kyle.jscbpm.memo.ReveiwNo" resultType="com.kyle.jscbpm.memo.Memo">
+		select * from js_memo where js_txt like '%'||#{js_txt}||'%'
+	</select>
+	<delete id="delReview" parameterType="com.kyle.jscbpm.memo.Memo">
+		delete from js_memo where js_no = #{js_no}
+	</delete>
+	<update id="update" parameterType="com.kyle.jscbpm.memo.Memo">
+		update js_memo set js_txt = #{js_txt} where js_no = #{js_no}		
+	</update>
+	<insert id="writeReply" parameterType="com.kyle.jscbpm.memo.MemoReply">
+		insert into js_memo_Reply values(js_memo_Reply_seq.nextval,#{jmr_js_no},#{jmr_writer},#{jmr_txt},sysdate)
+	</insert>
+	<select id="getReply" resultType="com.kyle.jscbpm.memo.MemoReply">
+		select * from js_memo_Reply
+	</select>
+	<delete id="deleteReply" parameterType="com.kyle.jscbpm.memo.MemoReply">
+		delete from js_memo_Reply where jmr_no = #{jmr_no}
+	</delete>
+</mapper>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kyle.jscbpm.member.MemberMapper">
+	<insert id="reg" parameterType="com.kyle.jscbpm.member.Member">
+		insert into js_member values(#{js_id},#{js_pw},#{js_name},#{js_email},#{js_addr},#{js_photo})
+	</insert>
+	<select id="getMemberById" parameterType="com.kyle.jscbpm.member.Member" resultType="com.kyle.jscbpm.member.Member">
+		select * from js_member where js_id = #{js_id}
+	</select>
+	<update id="updateMember" parameterType="com.kyle.jscbpm.member.Member">
+		update js_member set js_pw = #{js_pw}, js_name = #{js_name}, js_email = #{js_email}, js_addr = #{js_addr}, js_photo = #{js_photo} where js_id = #{js_id}
+	</update>
+	<delete id="deleteMember" parameterType="com.kyle.jscbpm.member.Member">
+		delete from js_member where js_id = #{js_id}
+	</delete>
+</mapper>

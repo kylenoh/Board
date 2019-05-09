@@ -1,0 +1,16 @@
+@CHARSET "UTF-8";
+
+.contactTable{
+	float:right;
+	display:inline;
+	width:850px;
+	border-collapse: collapse;
+	border:1px solid #757575;
+	clear: both;
+	font-size:12pt;
+	font-family: sans-serif;
+}
+.contactTable tr td{
+	width:800px;
+	padding:2px;
+}

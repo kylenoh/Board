@@ -1,0 +1,128 @@
+@CHARSET "UTF-8";
+
+body {
+	margin: 0 auto;
+	padding: 0;
+	min-height: 800px;
+	font-family: sans-serif;
+	font-size: 12px;
+	color: #757575;
+	font-weight: normal;
+	font-style: normal;
+	display: block;
+	font-weight: normal;
+}
+
+#logSection {
+	overflow: hidden;
+}
+#logTable > tr > td{
+	margin:1px;
+	border:1px solid #757575;
+	text-align: center;
+}
+
+.logInput {
+	border: none;
+	border-bottom: 2px solid #757575;
+	background-color: transparent;
+}
+
+.logButton {
+	border: none;
+	background-color: transparent;
+	font-size: 12px;
+	color: #757575;
+	font-weight: normal;
+	font-style: normal;
+}
+.logButton1{
+	border: none;
+	background-color: transparent;
+	font-size: 12px;
+	color: #757575;
+	font-weight: normal;
+	font-style: normal;
+	position:relative;
+	top:2px;
+	right:1px
+}
+
+.joinButton {
+	border: none;
+	background-color: transparent;
+	position: relative;
+	top: -20px;
+	left: 515px;
+	font-size: 12px;
+	color: #757575;
+	font-weight: normal;
+	font-style: normal;
+}
+.updateButton{
+	border: none;
+	background-color: transparent;
+	position: relative;
+	top: -32px;
+	left: 260px;
+	font-size: 12px;
+	color: #757575;
+	font-weight: normal;
+	font-style: normal;
+}
+
+.nav-list {
+	overflow: hidden;
+	background-color: pink;
+	list-style: none;
+	font-size: 16px;
+	color: #222;
+	margin-bottom: 0;
+}
+
+.nav-list li {
+	float: left;
+}
+.nav-list li a {
+	display: block;
+	padding: 10px;
+	text-align: center;
+	text-decoration: none;
+	color: white;
+}
+.home-list {
+	overflow: hidden;
+	list-style: none;
+	color: #222;
+	padding:0;
+}
+
+.home-list li {
+	float: left;
+}
+.home-list li img {
+	display: block;
+	padding: 8px;
+}
+
+#sliderArticle {
+	width: 100%;
+	height: 400px;
+}
+
+#loginImg {
+	width: 36px;
+	height: 36px;
+	border: none;
+	border-radius: 30px;
+}
+#searchNaver{
+	border: none;
+	border-bottom:1px solid #757575;
+	background-color: transparent;
+}
+#searchButton{
+	border: none;
+	background-color: transparent;
+	color:red;
+}

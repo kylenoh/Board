@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kyle.jscbpm.man.ManMapper">
+	<insert id="writeMan" parameterType="com.kyle.jscbpm.man.Man">
+		insert into js_man values(js_man_seq.nextval,#{js_txt},sysdate,#{js_file})
+	</insert>
+	<select id="getAllMemo" resultType="com.kyle.jscbpm.man.Man">
+		select rownum,js_no,js_txt,js_date,js_file from (select rownum as rn,js_no,js_txt,js_date,js_file from js_man order by js_no desc)where rn&gt;=5 and rn&lt;=10
+	</select>
+	<select id="getAllMemoCount" resultType="java.lang.Integer">
+		select count(*) from js_man
+	</select>
+	<select id="getMemo" parameterType="com.kyle.jscbpm.man.MemoNo" resultType="com.kyle.jscbpm.man.Man">
+		select * from(select rownum as rn,js_no,js_txt,js_date,js_file from (select * from js_man order by js_date))where rn &lt;=#{start} and rn &gt;= #{end} order by rn desc
+	</select>
+	<select id="search" resultType="com.kyle.jscbpm.man.Man" parameterType="com.kyle.jscbpm.man.MemoNo">
+		select * from js_man where js_txt like '%'||#{js_txt}||'%' order by js_date
+	</select>
+	<delete id="delete" parameterType="com.kyle.jscbpm.man.Man">
+		delete from js_man where js_no = #{js_no}
+	</delete>
+</mapper>

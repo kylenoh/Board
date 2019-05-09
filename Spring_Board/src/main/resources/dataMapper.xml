@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kyle.jscbpm.dataRoom.DataMapper">
+	<insert id="upload" parameterType="com.kyle.jscbpm.dataRoom.Data">
+		insert into js_data values(js_data_seq.nextval,#{js_uploader},#{js_title},#{js_cate},#{js_file},sysdate)
+	</insert>
+	<select id="select" resultType="com.kyle.jscbpm.dataRoom.Data">
+		select * from js_data order by js_date desc
+	</select>
+	<delete id="deleteData" parameterType="com.kyle.jscbpm.dataRoom.Data">
+		delete from js_data where js_no = #{js_no}
+	</delete>
+</mapper>
